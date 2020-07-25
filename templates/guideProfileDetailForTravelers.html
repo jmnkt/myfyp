@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if user.is_authenticated %}
+  
+Guide ID : {{profileDetail.guidesID}} <br/>
+Introduction : {{profileDetail.introduction}} <br/>
+Position : {{profileDetail.position}} <br/>
+
+<a href = "/trip/{{profileDetail.guidesID}}/selectGuide"> Select Guide </a>
+
+{% endif %}
+{% endblock %}

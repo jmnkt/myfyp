@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if request.user.is_authenticated %}
+<ul>
+{% for reviews in review_list %}
+<li>
+Review ID :{{reviews.reviewID}}<br/>
+Trip ID :{{reviews.tripID}}<br/>
+Review Rating: {{reviews.rating}}<br/>
+Review :{{reviews.reviewContent}}<br/>
+</li>
+{% endfor %}
+</ul>
+{% endif %}
+{% endblock %}

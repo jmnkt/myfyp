@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+  Hi {{ user.username }}! <br/> 
+  Your ID is {{user.id}} <br/>
+  
+ Your full name is {{profileDetail.name}} <br/>
+ You signed up as a {{profileDetail.identity}} <br/>
+
+ {% if profileDetail.identity == 'TRAVELERS' %}
+    <p> Hi traveler </p>
+    Click <a href="/trip/createNewTrip">here</a> to create a new trip<br/>
+    Click <a href="/trip/{{user.id}}/listUpcomingTrip">here</a> to view created trip<br/>
+    Click <a href="/reviews/listTravelerReview"> here </a> to view all reviews received<br/>
+ {% elif profileDetail.identity == 'GUIDES' %}
+    Click <a href="/profiles/createGuideProfile">here</a> to create your guide profile<br/>
+    Click <a href="/profiles/{{user.id}}/guideProfileDetail"> here </a> to view your profile.<br/>
+    
+        
+{% endif %}
+
+  Click <a href="{% url 'logout' %}"> here </a> to logout ! 
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">login</a>
+{% endif %}
+
+
+{% endblock %}

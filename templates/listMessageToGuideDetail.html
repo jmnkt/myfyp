@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if user.is_authenticated %}
+ 
+    Message ID : {{message.messagesID}} </a><br/>
+    Message Sender : {{message.senderID}} </a><br/>
+    Message Send At : {{message.sendAt}} </a><br/>
+    Message Content: {{message.content}} </a><br/>
+    Trip ID : {{message.tripID}}
+
+ {% endif %}
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if user.is_authenticated %}
+  
+Guide ID : {{profileDetail.guidesID}} <br/>
+Introduction : {{profileDetail.introduction}} <br/>
+Position : {{profileDetail.position}} <br/>
+
+<a href = "/trip/{{profileDetail.guidesID}}/listIncomingTrip/"> View Incoming Trip Requests </a><br/>
+<a href="/message/{{profileDetail.guidesID}}/listGuideMessages/">List Messages Received</a><br/>
+<a href="/reviews/{{profileDetail.guidesID}}/listGuideReview/">List Reviews Received</a>
+{% endif %}
+{% endblock %}

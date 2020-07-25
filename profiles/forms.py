@@ -1,9 +1,9 @@
 from django import forms
-from .models import User, Guides
+from .models import userProfile, guideProfile, itineraryFile, licenseFile, profilePicImage 
 
-class UserForm(forms.ModelForm):
+class UserProfileForm(forms.ModelForm):
     class Meta:
-        model = User
+        model = userProfile
         fields = [
             'name',
             'gender',
@@ -11,15 +11,32 @@ class UserForm(forms.ModelForm):
             'email',
             'address',
             'dateOfBirth',
-            'profilePic'   
+            'identity',
         ]
 
-class GuideForm(forms.ModelForm):
+class GuideProfileForm(forms.ModelForm):
     class Meta:
-        model = Guides
+        model = guideProfile
         fields = [
+            # 'userProfiles',
             'guidingCountry',
-            'licenses',
-            'itinerary',
-            'introduction'
+            'guidingState',
+            'introduction',
+            'position',
+            'quotedCharges'
         ]
+
+class ItineraryModelForm(forms.ModelForm):
+    class Meta:
+        model = itineraryFile
+        fields = ['itinerary']
+
+class LicenseModelForm(forms.ModelForm):
+    class Meta:
+        model = licenseFile
+        fields = ['licenses']
+        
+class ProfilePicModelForm(forms.ModelForm):
+    class Meta:
+        model = profilePicImage
+        fields = ['profilePic']

@@ -1,34 +1,36 @@
 from django.db import models
-from profiles.models import Travelers, Guides
+from profiles.models import userProfile
+from trips.models import Trip
+from django.contrib.auth import get_user_model
 
-# Create your models here.
+User = get_user_model()
 
-class travelerReviews(models.Model):
+class ReviewsForGuides(models.Model):
     reviewID = models.AutoField(primary_key = True)
-    senderID = models.ForeignKey('Traveler', on_delete = models.CASCADE)
-    tripID = models.ForeignKey('Trip', on_delete = models.CASCADE)
-    GuideID = models.ForeignKey('Guides', on_delete = models.CASCADE )
+    recipientID = models.IntegerField()
+    senderID = models.ForeignKey(User, on_delete=models.CASCADE)
+    tripID = models.IntegerField()
     reviewContent = models.TextField()
-    rating_Choices = [
+    ratingChoices = [
         (1, 'Poor'),
         (2, 'Average'),
         (3, 'Good'),
         (4, 'Very Good'),
         (5, 'Excellent')
     ]
-    rating = models.IntegerField(choices = rating_Choices, default = 1)
+    rating = models.IntegerField(choices = ratingChoices, default = 1)
 
-class guideReviews(models.Model):
+class ReviewsForTravelers(models.Model):
     reviewID = models.AutoField(primary_key = True)
-    senderID = models.ForeignKey('Guides', on_delete = models.CASCADE )
-    tripID = models.ForeignKey('Trip', on_delete = models.CASCADE)
-    travelerID = models.ForeignKey('Traveler', on_delete = models.CASCADE)
+    recipientID = models.IntegerField()
+    senderID = models.ForeignKey(User, on_delete=models.CASCADE)
+    tripID = models.IntegerField()
     reviewContent = models.TextField()
-    rating_Choices = [
+    ratingChoices = [
         (1, 'Poor'),
         (2, 'Average'),
         (3, 'Good'),
         (4, 'Very Good'),
         (5, 'Excellent')
     ]
-    rating = models.IntegerField(choices = rating_Choices, default = 1)
+    rating = models.IntegerField(choices = ratingChoices, default = 1)

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if user.is_authenticated %}
+  {% for trip in trips %}
+  <li> <a href="/trip/{{trip.tripID}}/listTripDetailForGuides">{{trip.tripID}}</li>
+  {% endfor %}
+ {% endif %}
+{% endblock %}
+

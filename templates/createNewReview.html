@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<div class = "container">
+        <h4>Leave Review</h4>
+            <form method = "post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form}}<br/>
+            <button type ='submit'>Submit</button>
+            </form>
+</div>
+{% endif %}
+
+{% endblock %}

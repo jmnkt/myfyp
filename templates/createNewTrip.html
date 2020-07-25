@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if request.user.is_authenticated %}
+<div class = "container">
+    <h4>Create Your Trip</h4>
+    <form method = "POST"> 
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type ='submit'>Submit</button>
+    </form>
+</div>
+{% endif %}
+
+{% endblock %}

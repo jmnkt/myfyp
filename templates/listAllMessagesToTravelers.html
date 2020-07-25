@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if request.user.is_authenticated %}
+<ul>
+{% for messages in message_list %}
+<li>Message ID :<a href = /message/{{messages.messagesID}}/listTravelerMessagesDetail> {{messages.messagesID}}</a><br/>
+Message {{messages.messagesID}} Send At : {{messages.sendAt}}<br/></li>
+{% endfor %}
+</ul>
+{% endif %}
+{% endblock %}

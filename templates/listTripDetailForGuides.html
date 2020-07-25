@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if user.is_authenticated %}
+ 
+    Trip ID : {{trips.tripID}} </a><br/>
+    State ID : {{trips.stateID}} </a><br/>
+    Start Date : {{trips.tripStartDate}} </a><br/>
+    End Date: {{trips.tripEndDate}} </a><br/>
+    Number of People: {{trips.numOfPeople}} </a><br/>
+    <a href="/message/{{trips.tripID}}/sendTravelerMessage">Send message to this traveler</a><br/>
+    <a href="/trip/{{trips.tripID}}/updateIncomingTrip">Update Trip Status</a><br/>
+    <a href="/reviews/{{trips.tripID}}/leaveTravelerReview">Leave review of this traveler</a><br/>
+     
+
+ {% endif %}
+{% endblock %}

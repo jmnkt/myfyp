@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if user.is_authenticated %}
+ 
+    Trip ID : {{trips.tripID}} </a><br/>
+    Status : {{trips.status}} </a><br/>
+    Guide ID : {{trips.guides}} </a><br/>
+    
+    {% if trips.status == 'ACCEPTED'  %}
+    <p><a href="/message/{{trips.tripID}}/sendGuideMessage">Click here to send message to your guide</p>
+    {% else %}
+    <p>Bye</p>
+    {% endif %}
+ {% endif %}
+{% endblock %}

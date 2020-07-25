@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if user.is_authenticated %}
+ 
+    Trip ID : {{trips.tripID}} </a><br/>
+    State ID : {{trips.stateID}} </a><br/>
+    Start Date : {{trips.tripStartDate}} </a><br/>
+    End Date: {{trips.tripEndDate}} </a><br/>
+    Number of People: {{trips.numOfPeople}} </a><br/>
+    <a href="/profiles/{{trips.stateID}}/listAllGuides">Select Guide For This Trip</a><br/>
+    <a href="/trip/{{trips.tripID}}/listTripStatus">View Trip Status</a></li><br/>
+    <a href="/message/listTravelerMessages/">List Messages Received</a><br/>
+    <a href="/reviews/{{trips.tripID}}/leaveGuideReview">Leave review of this guide</a><br/>
+ {% endif %}
+{% endblock %}

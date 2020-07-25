@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+  Hi {{ user.username }}! <br/> 
+  If you haven't create your profile yet , please <a href="{% url 'user-profile-create' %}">Create Your Profile</a><br/>
+  {% for users in allUser %}
+  {% if users.owner.username == user.username %}
+  To view your profile, click <a href="/profiles/{{users.userID}}/userProfileDetail"> here</a><br/>      
+  {%endif%}
+  {% endfor %}
+  Click <a href="{% url 'logout' %}"> here </a> to logout ! 
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">login</a>
+{% endif %}
+
+
+{% endblock %}

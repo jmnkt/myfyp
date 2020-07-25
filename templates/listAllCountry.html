@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if request.user.is_authenticated %}
+<ul>
+{% for country in country_list %}
+<li><a href="/country/{{country.countryCode}}/listAllState">{{country.countryName}}</a></li>
+{% endfor %}
+</ul>
+{% endif %}
+{% endblock %}

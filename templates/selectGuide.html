@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Select This Guide</h2>
+  <form method="post">
+    {% csrf_token %}
+    <p> The ID of this guide is {{guide.user}}
+    {{form.as_p}}
+    <button type="submit">Select</button><br/><br/>
+    <a href="/trip/{{user.id}}/listUpcomingTrip">Forget Trip ID? </a>
+  </form>
+{% endblock %}

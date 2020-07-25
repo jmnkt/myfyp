@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if request.user.is_authenticated %}
+<ul>
+{% for state in state_list %}
+<li><a href="/profiles/{{state.stateCode}}/listAllGuides">{{state.stateName}}</a></li>
+{% endfor %}
+</ul>
+{% endif %}
+{% endblock %}
