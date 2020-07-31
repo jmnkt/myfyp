@@ -125,6 +125,13 @@ def guide_based_on_state(request, id):
     }
     return render(request, "listAllGuide.html", context)
 
+def guide_browse(request, id):
+    guide_list = guideProfile.objects.filter(guidingState = id)
+    context = {
+        "guide_list": guide_list
+    }
+    return render(request, "browseAllGuide.html", context)
+
 def guideprofile_detail_travelers(request, id):
     profileDetail= guideProfile.objects.get(user = id)
     context = {"profileDetail" : profileDetail}
@@ -134,3 +141,8 @@ def guideprofile_detail(request, id):
     profileDetail= guideProfile.objects.get(user = id)
     context = {"profileDetail" : profileDetail}
     return render(request, "guideProfileDetail.html", context)
+
+def browse_guideprofile_detail(request, id):
+    profileDetail= guideProfile.objects.get(user = id)
+    context = {"profileDetail" : profileDetail}
+    return render(request, "browseGuideProfileDetail.html", context)

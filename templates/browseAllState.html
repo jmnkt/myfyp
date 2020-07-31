@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<ul>
+{% for state in state_list %}
+<li><a href="/profiles/{{state.stateCode}}/browseAllGuides">{{state.stateName}}</a></li>
+{% endfor %}
+</ul>
+
+{% endblock %}

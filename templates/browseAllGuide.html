@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<ul>
+{% for guides in guide_list %}
+{% if guides.applicationStatus == 'APPROVED' %}
+<li>Guide ID : <a href="/profiles/{{guides.user.id}}/browseGuideProfileDetail">{{guides.guidesID}}</a></li>
+{% endif %}
+{% endfor %}
+</ul>
+
+{% endblock %}

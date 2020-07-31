@@ -9,12 +9,16 @@
   {% for users in allUser %}
   {% if users.owner.username == user.username %}
   To view your profile, click <a href="/profiles/{{users.userID}}/userProfileDetail"> here</a><br/>      
+   <a href="{% url 'country-browse' %}">List All Country</a>
   {%endif%}
   {% endfor %}
   Click <a href="{% url 'logout' %}"> here </a> to logout ! 
 {% else %}
   <p>You are not logged in</p>
-  <a href="{% url 'login' %}">login</a>
+  <a href="{% url 'login' %}">Log In</a><br/>
+  <a href="{% url 'signup' %}">Sign Up</a><br/>
+  <a href="{% url 'country-browse' %}">List All Country</a>
+
 {% endif %}
 
 
